@@ -7,6 +7,7 @@
   "scripts": {
     "test": "jest --config jestconfig.json --no-watchman",
     "build": "tsc",
+    "watch": "tsc-watch",
     "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json",
     "prepare": "npm run build",
@@ -29,12 +30,20 @@
   ],
   "homepage": "https://github.com/makeitsaas/pipeline-framework#readme",
   "devDependencies": {
+    "@types/dotenv": "^6.1.1",
     "@types/jest": "^24.0.17",
+    "@types/node": "^12.7.0",
     "jest": "^24.8.0",
     "prettier": "^1.18.2",
     "ts-jest": "^24.0.2",
+    "tsc-watch": "^2.4.0",
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "load-json-file": "^6.2.0",
+    "typeorm": "^0.2.18"
   }
 }
