@@ -1,4 +1,4 @@
-export { Core } from './core/core';
+export { CoreContainer } from './core/core';
 
 export * from './features/pipeline/pipeline';
 export { Entity, Column, PrimaryColumn, Connection } from 'typeorm';

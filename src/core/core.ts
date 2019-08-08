@@ -30,4 +30,4 @@ export class CoreClass {
     }
 }
 
-export const Core = new CoreClass();
+export const CoreContainer = new CoreClass();
