@@ -4,5 +4,5 @@ import { Databases } from '../..';
 export const StorageService = {
     storeData: (data: any) => {
         // console.log(Databases.output);
-    }
+    },
 };

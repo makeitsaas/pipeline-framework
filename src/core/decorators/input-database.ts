@@ -5,8 +5,8 @@ export function inputDatabase(code: string) {
         CoreContainer.onReady().then(() => {
             const database = CoreContainer.getDatabase(code);
             Object.defineProperty(target, propertyName, {
-                value: database
+                value: database,
             });
-        })
-    }
+        });
+    };
 }

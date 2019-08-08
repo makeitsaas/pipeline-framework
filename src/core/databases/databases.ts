@@ -1,9 +1,9 @@
 import * as fs from 'fs';
-import { Connection, ConnectionOptions, createConnection } from "typeorm";
+import { Connection, ConnectionOptions, createConnection } from 'typeorm';
 import { Directories } from '../utils/directories';
 
 export const Databases: {
-    [key: string]: Connection
+    [key: string]: Connection;
 } = {};
 
 export const loadDatabases = async () => {
@@ -17,9 +17,10 @@ export const loadDatabases = async () => {
                 // here you can start to work with your entities
                 Databases[databaseCode] = connection;
                 return connection;
-            }).catch(error => {
-                throw error;
             })
+            .catch(error => {
+                throw error;
+            });
     });
 
     const outputPromise = createConnection(getOutputConnectionOptions()).then(connection => {
@@ -30,10 +31,9 @@ export const loadDatabases = async () => {
     return Promise.all([...inputPromises, outputPromise]);
 };
 
-
 const getInputConnectionOptions = (code: string): ConnectionOptions => {
     const options: ConnectionOptions = {
-        type: "mysql",
+        type: 'mysql',
         host: process.env[`DB_INPUT_${code.toUpperCase()}_HOSTNAME`],
         port: 3306,
         username: process.env[`DB_INPUT_${code.toUpperCase()}_USERNAME`],
@@ -41,7 +41,7 @@ const getInputConnectionOptions = (code: string): ConnectionOptions => {
         database: process.env[`DB_INPUT_${code.toUpperCase()}_DATABASE`],
         entities: Directories.getInputDatabaseEntitiesFiles(code),
         synchronize: false,
-        logging: false
+        logging: false,
     };
 
     // console.log(options);
@@ -51,7 +51,7 @@ const getInputConnectionOptions = (code: string): ConnectionOptions => {
 
 const getOutputConnectionOptions = (): ConnectionOptions => {
     const options: ConnectionOptions = {
-        type: "mysql",
+        type: 'mysql',
         host: process.env[`DB_OUTPUT_HOSTNAME`],
         port: 3306,
         username: process.env[`DB_OUTPUT_USERNAME`],
@@ -59,7 +59,7 @@ const getOutputConnectionOptions = (): ConnectionOptions => {
         database: process.env[`DB_OUTPUT_DATABASE`],
         entities: Directories.getOutputDatabaseEntitiesFiles(),
         synchronize: true,
-        logging: false
+        logging: false,
     };
 
     // console.log(options);

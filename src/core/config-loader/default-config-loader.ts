@@ -4,7 +4,7 @@ import { Directories } from '../utils/directories';
 const defaultConfigPath = `${Directories.getRootDir()}/config/config.json`;
 
 interface IDefaultConfig {
-    [key: string]: any
+    [key: string]: any;
 }
 
 export class DefaultConfigLoader {
@@ -18,7 +18,6 @@ export class DefaultConfigLoader {
             console.error('[ERROR] cannot load config/config.json. Abort');
             throw e;
         }
-
     }
 
     public getConfig(): IDefaultConfig {

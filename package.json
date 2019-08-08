@@ -1,6 +1,6 @@
 {
   "name": "@make-it-saas/pipeline",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "MIS framework to build flexible and scalable pipelines",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

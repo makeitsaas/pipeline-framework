@@ -15,7 +15,7 @@ export class CoreClass {
         this.ready = Promise.all([loadDatabases()]);
         this.ready.then(() => {
             StorageService.storeData({});
-        })
+        });
     }
 
     public onReady(): Promise<any> {
@@ -23,10 +23,10 @@ export class CoreClass {
     }
 
     public getDatabase(code: string): Connection {
-        if(!Databases[code]) {
+        if (!Databases[code]) {
             throw new Error(`Database ${code} does not exist`);
         }
-        return  Databases[code];
+        return Databases[code];
     }
 }
 

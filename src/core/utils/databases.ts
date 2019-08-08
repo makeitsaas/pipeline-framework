@@ -3,7 +3,7 @@ import { Databases } from '../..';
 
 export function getEntityDatabaseCode(entity: ObjectType<any>) {
     for (const code in Databases) {
-        if(Databases[code]) {
+        if (Databases[code]) {
             try {
                 Databases[code].getRepository(entity); // error if not found
                 return code;
@@ -12,7 +12,6 @@ export function getEntityDatabaseCode(entity: ObjectType<any>) {
     }
     throw new Error('Unable to find entity database');
 }
-
 
 export function getEntityDatabaseConnection(entity: ObjectType<any>) {
     const code = getEntityDatabaseCode(entity);

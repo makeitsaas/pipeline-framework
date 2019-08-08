@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
 export const Directories = {
     getRootDir() {
@@ -12,7 +12,7 @@ export const Directories = {
         try {
             const files = fs.readdirSync(entitiesDir);
             return files.map((file: string) => `${entitiesDir}/${file}`);
-        } catch(e) {
+        } catch (e) {
             console.error('Cannot read entities directory');
             throw e;
         }
@@ -22,9 +22,9 @@ export const Directories = {
         try {
             const files = fs.readdirSync(entitiesDir);
             return files.map((file: string) => `${entitiesDir}/${file}`);
-        } catch(e) {
+        } catch (e) {
             console.error('Cannot read entities directory');
             throw e;
         }
-    }
+    },
 };

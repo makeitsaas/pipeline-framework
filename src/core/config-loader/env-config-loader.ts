@@ -5,7 +5,7 @@ export class EnvConfigLoader {
         console.log('| load .env');
         try {
             this.load();
-        } catch(e) {
+        } catch (e) {
             console.error('[ERROR] cannot load .env file. Abort');
             throw e;
         }
@@ -16,12 +16,11 @@ export class EnvConfigLoader {
     }
 }
 
-
 export const LoadEnvConfig = () => {
     console.log('| load .env');
     try {
         config();
-    } catch(e) {
+    } catch (e) {
         console.error('[ERROR] cannot load .env file. Abort');
         throw e;
     }

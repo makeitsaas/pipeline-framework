@@ -2,11 +2,9 @@ import { Connection, ObjectType } from 'typeorm';
 import { getEntityDatabaseConnection } from '../../../core/utils/databases';
 
 export class DemoModel {
-
     private model: number;
 
-    constructor(private entity: ObjectType<any>) {
-    }
+    constructor(private entity: ObjectType<any>) {}
 
     public async train() {
         const connection: Connection = getEntityDatabaseConnection(this.entity);
