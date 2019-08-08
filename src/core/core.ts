@@ -1,6 +1,8 @@
 import { DefaultConfigLoader } from './config-loader/default-config-loader';
 import { EnvConfigLoader } from './config-loader/env-config-loader';
-import { loadDatabases } from './databases/databases';
+import { Databases, loadDatabases } from './databases/databases';
+import { StorageService } from '../features/storage/storage-service';
+import { Connection } from 'typeorm';
 
 export class CoreClass {
     private defaultConfig: DefaultConfigLoader;
@@ -10,11 +12,21 @@ export class CoreClass {
         console.log('| load pipeline core');
         new EnvConfigLoader();
         this.defaultConfig = new DefaultConfigLoader();
-        this.ready = Promise.all([loadDatabases()])
+        this.ready = Promise.all([loadDatabases()]);
+        this.ready.then(() => {
+            StorageService.storeData({});
+        })
     }
 
     public onReady(): Promise<any> {
         return this.ready;
+    }
+
+    public getDatabase(code: string): Connection {
+        if(!Databases[code]) {
+            throw new Error(`Database ${code} does not exist`);
+        }
+        return  Databases[code];
     }
 }
 
