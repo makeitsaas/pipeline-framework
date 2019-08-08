@@ -1,10 +1,11 @@
 // unsupervised ML
 
 export class ClusteringService {
-    buildModel<entity>() {
-
+    public buildModel<entity>() {
+        console.log('todo');
     }
 
-    getCluster<entity>(data: entity) {
+    public getCluster<entity>(data: entity) {
+        console.log('todo');
     }
 }

@@ -15,3 +15,14 @@ export class EnvConfigLoader {
         config();
     }
 }
+
+
+export const LoadEnvConfig = () => {
+    console.log('| load .env');
+    try {
+        config();
+    } catch(e) {
+        console.error('[ERROR] cannot load .env file. Abort');
+        throw e;
+    }
+};

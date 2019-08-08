@@ -2,10 +2,11 @@
 // or predict float (number of people at a certain hour, amount of
 
 export class PredictFieldService {
-    buildModel<entity>() {
-
+    public buildModel<entity>() {
+        console.log('todo');
     }
 
-    predict<entity>(data: entity, field: string) {
+    public predict<entity>(data: entity, field: string) {
+        console.log('todo');
     }
 }

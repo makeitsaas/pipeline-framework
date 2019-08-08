@@ -1,16 +1,16 @@
-import { DefaultConfigLoader } from './config-loader/default-config-loader';
-import { EnvConfigLoader } from './config-loader/env-config-loader';
-import { Databases, loadDatabases } from './databases/databases';
-import { StorageService } from '../features/storage/storage-service';
 import { Connection } from 'typeorm';
+import { StorageService } from '../features/storage/storage-service';
+import { DefaultConfigLoader } from './config-loader/default-config-loader';
+import { LoadEnvConfig } from './config-loader/env-config-loader';
+import { Databases, loadDatabases } from './databases/databases';
 
 export class CoreClass {
     private defaultConfig: DefaultConfigLoader;
-    readonly ready: Promise<any>;
+    private ready: Promise<any>;
 
     constructor() {
         console.log('| load pipeline core');
-        new EnvConfigLoader();
+        LoadEnvConfig();
         this.defaultConfig = new DefaultConfigLoader();
         this.ready = Promise.all([loadDatabases()]);
         this.ready.then(() => {

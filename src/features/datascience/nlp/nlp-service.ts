@@ -1,4 +1,5 @@
 export class NlpService {
-    extractTerms(text: string) {
+    public extractTerms(text: string) {
+        console.log('todo');
     }
 }

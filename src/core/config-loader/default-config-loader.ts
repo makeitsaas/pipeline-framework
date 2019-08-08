@@ -1,8 +1,11 @@
+import * as LoadJsonFile from 'load-json-file';
 import { Directories } from '../utils/directories';
-const loadJsonFile = require('load-json-file');
+
 const defaultConfigPath = `${Directories.getRootDir()}/config/config.json`;
 
-interface IDefaultConfig {[key: string]: any}
+interface IDefaultConfig {
+    [key: string]: any
+}
 
 export class DefaultConfigLoader {
     private config: IDefaultConfig = {};
@@ -11,18 +14,18 @@ export class DefaultConfigLoader {
         console.log('| load config :', Directories.getRootDir());
         try {
             this.load();
-        } catch(e) {
+        } catch (e) {
             console.error('[ERROR] cannot load config/config.json. Abort');
             throw e;
         }
 
     }
 
-    private load() {
-        this.config = loadJsonFile.sync(defaultConfigPath);
+    public getConfig(): IDefaultConfig {
+        return this.config;
     }
 
-    getConfig(): IDefaultConfig {
-        return this.config;
+    private load() {
+        this.config = LoadJsonFile.sync(defaultConfigPath);
     }
 }

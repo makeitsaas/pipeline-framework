@@ -1,7 +1,6 @@
-import { Directories } from '../utils/directories';
+import * as fs from 'fs';
 import { Connection, ConnectionOptions, createConnection } from "typeorm";
-
-const fs = require('fs');
+import { Directories } from '../utils/directories';
 
 export const Databases: {
     [key: string]: Connection
